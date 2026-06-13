@@ -22,7 +22,7 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
                     Kenyamanan<br><span>Rumah Dimulai</span><br>di Sini
                 </h1>
                 <p class="hero-desc">
-                    Toko Randu Mekar menyediakan kasur, karpet, bantal, guling, sofa dan berbagai produk 
+                    Toko Randu Mekar menyediakan kasur, karpet, bantal, guling, sofa dan berbagai produk
                     meubel berkualitas dengan harga langsung dari produsen. Gratis ongkir area Sukoharjo!
                 </p>
                 <div class="hero-buttons">
@@ -91,37 +91,39 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
             <div class="divider-line"></div>
             <p class="section-desc">Koleksi produk terlaris yang dipilih khusus untuk kenyamanan dan kualitas terbaik di harga yang terjangkau.</p>
         </div>
-        
+
         <div class="row g-4">
             <?php if ($produk_unggulan && $produk_unggulan->num_rows > 0): ?>
-                <?php $loop_delay = 0; while ($p = $produk_unggulan->fetch_assoc()): ?>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php $loop_delay += 100; echo $loop_delay; ?>">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <?php if ($p['gambar'] && file_exists("uploads/" . $p['gambar'])): ?>
-                                <img src="uploads/<?= htmlspecialchars($p['gambar']) ?>" alt="<?= htmlspecialchars($p['nama_produk']) ?>">
-                            <?php else: ?>
-                                <div class="product-placeholder">
-                                    <?php
-                                    $icons = ['kasur'=>'🛏️','karpet'=>'🟫','bantal'=>'🟤','guling'=>'🟡','sofa'=>'🛋️','rak_piring'=>'🍽️','kasur_lantai'=>'🛌'];
-                                    echo $icons[$p['kategori']] ?? '📦';
-                                    ?>
-                                    <span><?= ucwords(str_replace('_', ' ', $p['kategori'])) ?></span>
-                                </div>
-                            <?php endif; ?>
-                            <span class="badge-unggulan">⭐ Unggulan</span>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-kategori"><?= strtoupper(str_replace('_', ' ', $p['kategori'])) ?></div>
-                            <div class="product-name"><?= htmlspecialchars($p['nama_produk']) ?></div>
-                            <div class="product-desc"><?= htmlspecialchars($p['deskripsi']) ?></div>
-                            <div class="product-price"><?= formatRupiah($p['harga']) ?></div>
-                            <a href="detail_produk.php?id=<?= $p['id_produk'] ?>" class="btn-detail">
-                                <i class="bi bi-eye me-1"></i>Lihat Detail
-                            </a>
+                <?php $loop_delay = 0;
+                while ($p = $produk_unggulan->fetch_assoc()): ?>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php $loop_delay += 100;
+                                                                                        echo $loop_delay; ?>">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <?php if ($p['gambar'] && file_exists("uploads/" . $p['gambar'])): ?>
+                                    <img src="uploads/<?= htmlspecialchars($p['gambar']) ?>" alt="<?= htmlspecialchars($p['nama_produk']) ?>">
+                                <?php else: ?>
+                                    <div class="product-placeholder">
+                                        <?php
+                                        $icons = ['kasur' => '🛏️', 'karpet' => '🟫', 'bantal' => '🟤', 'guling' => '🟡', 'sofa' => '🛋️', 'rak_piring' => '🍽️', 'kasur_lantai' => '🛌'];
+                                        echo $icons[$p['kategori']] ?? '📦';
+                                        ?>
+                                        <span><?= ucwords(str_replace('_', ' ', $p['kategori'])) ?></span>
+                                    </div>
+                                <?php endif; ?>
+                                <span class="badge-unggulan">⭐ Unggulan</span>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-kategori"><?= strtoupper(str_replace('_', ' ', $p['kategori'])) ?></div>
+                                <div class="product-name"><?= htmlspecialchars($p['nama_produk']) ?></div>
+                                <div class="product-desc"><?= htmlspecialchars($p['deskripsi']) ?></div>
+                                <div class="product-price"><?= formatRupiah($p['harga']) ?></div>
+                                <a href="detail_produk.php?id=<?= $p['id_produk'] ?>" class="btn-detail">
+                                    <i class="bi bi-eye me-1"></i>Lihat Detail
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php endwhile; ?>
             <?php else: ?>
                 <div class="col-12 text-center py-5">
@@ -131,7 +133,7 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
                 </div>
             <?php endif; ?>
         </div>
-        
+
         <div class="text-center mt-5">
             <a href="produk.php" class="btn-outline-custom">
                 <i class="bi bi-grid me-1"></i> Lihat Semua Produk
@@ -148,7 +150,7 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
             <h2 class="section-title">Mengapa Memilih <span>Randu Mekar?</span></h2>
             <div class="divider-line"></div>
         </div>
-        
+
         <div class="row g-4">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card">
@@ -206,8 +208,8 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
             <h2 class="cta-title mt-3">Tertarik Mencoba Produk Kami?</h2>
             <p class="cta-desc">Hubungi kami sekarang untuk konsultasi gratis dan dapatkan penawaran terbaik. Tim kami siap membantu Anda menemukan produk yang sempurna!</p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>?text=Halo%20Toko%20Randu%20Mekar%2C%20saya%20tertarik%20dengan%20produk%20Anda" 
-                   class="btn-wa" target="_blank">
+                <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>?text=Halo%20Toko%20Randu%20Mekar%2C%20saya%20tertarik%20dengan%20produk%20Anda"
+                    class="btn-wa" target="_blank">
                     <i class="bi bi-whatsapp"></i> Chat via WhatsApp
                 </a>
                 <a href="produk.php" class="btn-outline-custom" style="border-color:var(--cream);color:var(--cream)">

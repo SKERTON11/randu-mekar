@@ -79,24 +79,26 @@ $pesan_terbaru = $conn->query("SELECT * FROM kontak ORDER BY created_at DESC LIM
                     <tbody>
                         <?php if ($produk_terbaru && $produk_terbaru->num_rows > 0): ?>
                             <?php while ($p = $produk_terbaru->fetch_assoc()): ?>
-                            <tr>
-                                <td>
-                                    <div style="font-weight:600;font-size:0.88rem;color:var(--teks-gelap)"><?= htmlspecialchars(mb_substr($p['nama_produk'], 0, 28)) ?>...</div>
-                                    <?php if ($p['unggulan']): ?>
-                                    <span style="font-size:0.7rem;background:rgba(245,158,11,0.1);color:#f59e0b;padding:2px 8px;border-radius:50px;font-weight:600">⭐ Unggulan</span>
-                                    <?php endif; ?>
-                                </td>
-                                <td><span style="font-size:0.78rem;color:var(--coklat-muda);font-weight:600"><?= strtoupper(str_replace('_',' ',$p['kategori'])) ?></span></td>
-                                <td style="font-weight:700;color:var(--coklat-tua);font-size:0.88rem"><?= formatRupiah($p['harga']) ?></td>
-                                <td>
-                                    <a href="edit_produk.php?id=<?= $p['id_produk'] ?>" class="btn-icon edit" title="Edit"><i class="bi bi-pencil"></i></a>
-                                    <a href="hapus_produk.php?id=<?= $p['id_produk'] ?>" class="btn-icon delete ms-1" title="Hapus"
-                                       data-delete="<?= htmlspecialchars($p['nama_produk']) ?>"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <div style="font-weight:600;font-size:0.88rem;color:var(--teks-gelap)"><?= htmlspecialchars(mb_substr($p['nama_produk'], 0, 28)) ?>...</div>
+                                        <?php if ($p['unggulan']): ?>
+                                            <span style="font-size:0.7rem;background:rgba(245,158,11,0.1);color:#f59e0b;padding:2px 8px;border-radius:50px;font-weight:600">⭐ Unggulan</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><span style="font-size:0.78rem;color:var(--coklat-muda);font-weight:600"><?= strtoupper(str_replace('_', ' ', $p['kategori'])) ?></span></td>
+                                    <td style="font-weight:700;color:var(--coklat-tua);font-size:0.88rem"><?= formatRupiah($p['harga']) ?></td>
+                                    <td>
+                                        <a href="edit_produk.php?id=<?= $p['id_produk'] ?>" class="btn-icon edit" title="Edit"><i class="bi bi-pencil"></i></a>
+                                        <a href="hapus_produk.php?id=<?= $p['id_produk'] ?>" class="btn-icon delete ms-1" title="Hapus"
+                                            data-delete="<?= htmlspecialchars($p['nama_produk']) ?>"><i class="bi bi-trash"></i></a>
+                                    </td>
+                                </tr>
                             <?php endwhile; ?>
                         <?php else: ?>
-                            <tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:2rem">Belum ada produk</td></tr>
+                            <tr>
+                                <td colspan="4" style="text-align:center;color:#9CA3AF;padding:2rem">Belum ada produk</td>
+                            </tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
@@ -110,25 +112,26 @@ $pesan_terbaru = $conn->query("SELECT * FROM kontak ORDER BY created_at DESC LIM
         <div class="admin-card mb-4">
             <h6 style="font-weight:700;color:var(--teks-gelap);margin-bottom:1.2rem">📊 Distribusi Kategori</h6>
             <?php
-            $icons_k = ['kasur'=>'🛏️','karpet'=>'🟫','bantal'=>'🟤','guling'=>'🟡','sofa'=>'🛋️','rak_piring'=>'🍽️','kasur_lantai'=>'🛌','lainnya'=>'📦'];
+            $icons_k = ['kasur' => '🛏️', 'karpet' => '🟫', 'bantal' => '🟤', 'guling' => '🟡', 'sofa' => '🛋️', 'rak_piring' => '🍽️', 'kasur_lantai' => '🛌', 'lainnya' => '📦'];
             if ($kategori_stat && $kategori_stat->num_rows > 0):
                 while ($ks = $kategori_stat->fetch_assoc()):
                     $pct = $total_produk > 0 ? round(($ks['jumlah'] / $total_produk) * 100) : 0;
             ?>
-            <div style="margin-bottom:12px">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                    <span style="font-size:0.82rem;font-weight:600;color:var(--teks-gelap)">
-                        <?= $icons_k[$ks['kategori']] ?? '📦' ?> <?= ucwords(str_replace('_',' ',$ks['kategori'])) ?>
-                    </span>
-                    <span style="font-size:0.78rem;color:#9CA3AF"><?= $ks['jumlah'] ?> produk</span>
-                </div>
-                <div style="background:#F0EBE3;border-radius:50px;height:8px;overflow:hidden">
-                    <div style="width:<?= $pct ?>%;height:100%;background:linear-gradient(90deg,var(--coklat-tua),var(--coklat-muda));border-radius:50px;transition:width 0.6s ease"></div>
-                </div>
-            </div>
-            <?php endwhile; endif; ?>
+                    <div style="margin-bottom:12px">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                            <span style="font-size:0.82rem;font-weight:600;color:var(--teks-gelap)">
+                                <?= $icons_k[$ks['kategori']] ?? '📦' ?> <?= ucwords(str_replace('_', ' ', $ks['kategori'])) ?>
+                            </span>
+                            <span style="font-size:0.78rem;color:#9CA3AF"><?= $ks['jumlah'] ?> produk</span>
+                        </div>
+                        <div style="background:#F0EBE3;border-radius:50px;height:8px;overflow:hidden">
+                            <div style="width:<?= $pct ?>%;height:100%;background:linear-gradient(90deg,var(--coklat-tua),var(--coklat-muda));border-radius:50px;transition:width 0.6s ease"></div>
+                        </div>
+                    </div>
+            <?php endwhile;
+            endif; ?>
         </div>
-        
+
     </div>
 </div>
 
@@ -168,26 +171,26 @@ $pesan_bawah = $conn->query("SELECT id, nama, email, pesan, status, created_at F
             </div>
             <?php if ($pesan_bawah && $pesan_bawah->num_rows > 0): ?>
                 <?php while ($pb = $pesan_bawah->fetch_assoc()): ?>
-                <div style="padding:10px 0;border-bottom:1px solid rgba(214,185,140,0.12)">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
-                        <div style="flex:1">
-                            <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">
-                                <?= htmlspecialchars($pb['nama']) ?>
-                                <span style="font-size:0.78rem;color:#9CA3AF">· <?= date('d M Y, H:i', strtotime($pb['created_at'])) ?></span>
-                                <?php if ($pb['status'] === 'baru'): ?>
-                                <span style="font-size:0.65rem;background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 8px;border-radius:50px;font-weight:700;margin-left:8px">BARU</span>
-                                <?php endif; ?>
+                    <div style="padding:10px 0;border-bottom:1px solid rgba(214,185,140,0.12)">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+                            <div style="flex:1">
+                                <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">
+                                    <?= htmlspecialchars($pb['nama']) ?>
+                                    <span style="font-size:0.78rem;color:#9CA3AF">· <?= date('d M Y, H:i', strtotime($pb['created_at'])) ?></span>
+                                    <?php if ($pb['status'] === 'baru'): ?>
+                                        <span style="font-size:0.65rem;background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 8px;border-radius:50px;font-weight:700;margin-left:8px">BARU</span>
+                                    <?php endif; ?>
+                                </div>
+                                <div style="font-size:0.9rem;color:#9CA3AF;margin-top:6px;line-height:1.6">
+                                    <?= htmlspecialchars(mb_substr($pb['pesan'], 0, 200)) ?><?= strlen($pb['pesan']) > 200 ? '...' : '' ?>
+                                </div>
                             </div>
-                            <div style="font-size:0.9rem;color:#9CA3AF;margin-top:6px;line-height:1.6">
-                                <?= htmlspecialchars(mb_substr($pb['pesan'],0,200)) ?><?= strlen($pb['pesan'])>200 ? '...' : '' ?>
+                            <div style="flex-shrink:0;display:flex;gap:8px;align-items:center">
+                                <a href="pesan.php?baca=<?= $pb['id'] ?>" class="btn-outline-custom" style="padding:8px 12px;font-size:0.85rem">Baca</a>
+                                <a href="pesan.php?hapus=<?= $pb['id'] ?>" class="btn-icon delete" onclick="return confirm('Hapus pesan ini?')" title="Hapus"><i class="bi bi-trash"></i></a>
                             </div>
-                        </div>
-                        <div style="flex-shrink:0;display:flex;gap:8px;align-items:center">
-                            <a href="pesan.php?baca=<?= $pb['id'] ?>" class="btn-outline-custom" style="padding:8px 12px;font-size:0.85rem">Baca</a>
-                            <a href="pesan.php?hapus=<?= $pb['id'] ?>" class="btn-icon delete" onclick="return confirm('Hapus pesan ini?')" title="Hapus"><i class="bi bi-trash"></i></a>
                         </div>
                     </div>
-                </div>
                 <?php endwhile; ?>
             <?php else: ?>
                 <div style="text-align:center;color:#9CA3AF;padding:1.2rem">Belum ada pesan</div>

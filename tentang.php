@@ -23,16 +23,16 @@ include 'config/header.php';
                 <h2 class="section-title mt-2">Berawal dari <span>Impian Sederhana</span></h2>
                 <div class="divider-line" style="margin-left:0"></div>
                 <p style="color:#7A6050;line-height:1.8;margin-bottom:1rem">
-                    Toko Randu Mekar didirikan pada tahun 2015 oleh keluarga yang memiliki passion besar terhadap 
-                    kenyamanan hunian. Berawal dari toko kecil di Sukoharjo, kami terus berkembang menjadi 
+                    Toko Randu Mekar didirikan pada tahun 2015 oleh keluarga yang memiliki passion besar terhadap
+                    kenyamanan hunian. Berawal dari toko kecil di Sukoharjo, kami terus berkembang menjadi
                     toko meubel terpercaya yang melayani ratusan pelanggan.
                 </p>
                 <p style="color:#7A6050;line-height:1.8;margin-bottom:1.5rem">
-                    Dengan pengalaman lebih dari 9 tahun, kami memahami kebutuhan setiap pelanggan dan berkomitmen 
-                    untuk memberikan produk berkualitas dengan harga yang terjangkau. Kepercayaan pelanggan adalah 
+                    Dengan pengalaman lebih dari 9 tahun, kami memahami kebutuhan setiap pelanggan dan berkomitmen
+                    untuk memberikan produk berkualitas dengan harga yang terjangkau. Kepercayaan pelanggan adalah
                     modal utama kami untuk terus berkembang.
                 </p>
-                
+
                 <div class="row g-3">
                     <div class="col-6">
                         <div style="background:var(--cream);border-radius:16px;padding:1.5rem;text-align:center">
@@ -48,7 +48,7 @@ include 'config/header.php';
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-6" data-aos="fade-left">
                 <!-- Static Illustration -->
                 <div style="background:var(--cream);border-radius:24px;padding:2rem;box-shadow:0 10px 40px var(--shadow)">
@@ -70,19 +70,19 @@ include 'config/header.php';
             <h2 class="section-title mt-2">Tujuan & <span>Komitmen</span> Kami</h2>
             <div class="divider-line"></div>
         </div>
-        
+
         <div class="row g-4">
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-card text-center">
                     <div class="feature-icon" style="font-size:2rem">👁️</div>
                     <div class="feature-title" style="font-size:1.2rem">Visi Kami</div>
                     <p class="feature-desc" style="font-size:0.9rem">
-                        Menjadi toko meubel terpercaya dan terdepan di Sukoharjo yang memberikan solusi 
+                        Menjadi toko meubel terpercaya dan terdepan di Sukoharjo yang memberikan solusi
                         terbaik untuk kenyamanan hunian masyarakat dengan produk berkualitas dan layanan prima.
                     </p>
                 </div>
             </div>
-            
+
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-card">
                     <div class="feature-title" style="font-size:1.2rem;text-align:center;margin-bottom:1.5rem">🎯 Misi Kami</div>
@@ -140,7 +140,7 @@ include 'config/header.php';
                     <h2 class="section-title mt-2">Timeline <span>Randu Mekar</span></h2>
                     <div class="divider-line"></div>
                 </div>
-                
+
                 <div class="timeline" data-aos="fade-up">
                     <div class="timeline-item">
                         <div class="timeline-year">2015</div>

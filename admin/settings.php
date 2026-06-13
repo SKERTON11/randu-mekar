@@ -73,10 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <?php if ($error): ?>
-    <div class="alert-custom alert-error-custom mb-4">❌ <?= $error ?></div>
+        <div class="alert-custom alert-error-custom mb-4">❌ <?= $error ?></div>
     <?php endif; ?>
     <?php if ($success): ?>
-    <div class="alert-custom alert-success-custom mb-4">✅ <?= $success ?></div>
+        <div class="alert-custom alert-success-custom mb-4">✅ <?= $success ?></div>
     <?php endif; ?>
 
     <form method="POST">
