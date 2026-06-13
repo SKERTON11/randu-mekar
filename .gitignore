@@ -1,0 +1,19 @@
+# PHP / general
+/vendor/
+/node_modules/
+/.vscode/
+/.idea/
+*.log
+*.env
+.DS_Store
+Thumbs.db
+
+# Application specific
+/uploads/
+config/koneksi.php
+
+# Composer
+composer.lock
+
+# OS files
+*.swp
