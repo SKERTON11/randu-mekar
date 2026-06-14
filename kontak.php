@@ -49,7 +49,7 @@ include 'config/header.php';
                         <i class="bi bi-whatsapp" style="color:#25D366;font-size:1.5rem"></i>
                     </div>
                     <div style="font-weight:700;color:var(--teks-gelap);margin-bottom:4px">WhatsApp</div>
-                    <div style="font-size:0.85rem;color:#7A6050">+62 877-5228-7106</div>
+                    <div style="font-size:0.85rem;color:#7A6050"><?= WHATSAPP_DISPLAY ?></div>
                     <div style="font-size:0.78rem;color:var(--coklat-muda);margin-top:6px">Klik untuk chat langsung →</div>
                 </a>
             </div>
@@ -167,7 +167,7 @@ include 'config/header.php';
                             </div>
                             <div>
                                 <div style="font-weight:600;color:var(--teks-gelap);font-size:0.9rem">Telepon / WA</div>
-                                <div style="font-size:0.85rem;color:#7A6050">+62 877-5228-7106</div>
+                                <div style="font-size:0.85rem;color:#7A6050"><?= WHATSAPP_DISPLAY ?></div>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@ include 'config/header.php';
                 <!-- Google Maps Embed -->
                 <div style="border-radius:20px;overflow:hidden;box-shadow:0 4px 20px var(--shadow)">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.408944852098!2d110.75928!3d-7.7563257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a3900144a5c03:0xbc5558b699dfc170!2sTOKO%20KASUR%20RANDU%20MEKAR!5e0!3m2!1sid!2sid!4v1718371200000"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.4089448520976!2d110.75928016345198!3d-7.756325699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a3900144a5c03%3A0xbc5558b699dfc170!2sJl.%20Randu%20Mekar%20No%2015%2C%20Sukoharjo!5e0!3m2!1sid!2sid!4v1718371200000"
                         width="100%"
                         height="350"
                         style="border:0;display:block"

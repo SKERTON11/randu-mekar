@@ -11,7 +11,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
         <div class="row g-4">
             <!-- Brand -->
             <div class="col-lg-4 col-md-6">
-                <div class="footer-brand">🏠 Toko Randu Mekar</div>
+                <div class="footer-brand"><img src="<?= $base_url ?>assets/images/logo polosan.png" alt="Randu Mekar Logo" class="footer-logo"> Toko Randu Mekar</div>
                 <p class="footer-tagline">
                     Menyediakan kasur, karpet, bantal, guling, sofa, dan berbagai produk meubel berkualitas sejak 2015. 
                     Harga langsung dari produsen, gratis ongkir area Sukoharjo.
@@ -63,7 +63,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                     <li>
                         <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>" target="_blank">
                             <i class="bi bi-whatsapp" style="color:#25D366"></i>
-                            +62 812-XXXX-XXXX
+                            <?= WHATSAPP_DISPLAY ?>
                         </a>
                     </li>
                     <li>
@@ -75,7 +75,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                     <li>
                         <a href="#">
                             <i class="bi bi-clock" style="color:var(--coklat-muda)"></i>
-                            Senin – Sabtu, 08.00 – 17.00 WIB
+                            Senin – Sabtu: 08.00 – 20.00 WIB<br>Minggu: 09.00 – 20.00 WIB
                         </a>
                     </li>
                 </ul>
@@ -95,11 +95,11 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
     </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <!-- Custom JS -->
-<script src="<?= $base_url ?>assets/js/main.js"></script>
+<script src="<?= $base_url ?>assets/js/main.js?v=<?= filemtime(__DIR__ . '/../assets/js/main.js') ?>"></script>
+
+<!-- Bootstrap JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

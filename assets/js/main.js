@@ -2,18 +2,26 @@
 // Toko Randu Mekar - Main JavaScript
 // =====================================================
 
-document.addEventListener('DOMContentLoaded', function () {
-
-    // ===== LOADING SCREEN =====
+(function () {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
+        let loaderHidden = false;
+        const hideLoadingScreen = () => {
+            if (loaderHidden) return;
+            loaderHidden = true;
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => { loadingScreen.remove(); }, 600);
+        };
+
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                setTimeout(() => { loadingScreen.remove(); }, 600);
-            }, 800);
-        });
+            setTimeout(hideLoadingScreen, 400);
+        }, { once: true });
+
+        setTimeout(hideLoadingScreen, 1200);
     }
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
 
     // ===== NAVBAR SCROLL EFFECT =====
     const navbar = document.querySelector('.navbar');

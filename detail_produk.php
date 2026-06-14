@@ -111,7 +111,7 @@ include 'config/header.php';
                     </div>
                     <div style="font-size:0.82rem;color:#7A6050;line-height:1.6">
                         📍 <?= TOKO_ALAMAT ?><br>
-                        🕐 Buka Senin–Sabtu, 08.00–17.00 WIB<br>
+                        🕐 Buka Senin–Sabtu: 08.00–20.00 WIB, Minggu: 09.00–20.00 WIB<br>
                         ✅ Garansi kepuasan pelanggan<br>
                         💳 Pembayaran fleksibel (tunai / transfer / cicilan)
                     </div>

@@ -30,7 +30,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= $base_url ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= $base_url ?>assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>">
 </head>
 
 <body>
@@ -38,8 +38,14 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
     <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loader-content">
-            <div class="loader-logo">🏠 Randu Mekar</div>
-            <div class="loader-spinner"></div>
+            <div class="loader-logo">
+                <img src="<?= $base_url ?>assets/images/logo polosan.png" alt="Randu Mekar Logo">
+            </div>
+            <div class="loader-spinner">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
         </div>
     </div>
 
@@ -47,7 +53,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="<?= $base_url ?>index.php">
-                <div class="brand-icon">🏠</div>
+                <div class="brand-icon"><img src="<?= $base_url ?>assets/images/logo polosan.png" alt="Randu Mekar Logo"></div>
                 <div class="brand-text">
                     <span class="brand-name">Randu Mekar</span>
                     <span class="brand-sub">Meubel & Furniture</span>
