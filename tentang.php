@@ -28,8 +28,8 @@ include 'config/header.php';
                     toko meubel terpercaya yang melayani ratusan pelanggan.
                 </p>
                 <p style="color:#7A6050;line-height:1.8;margin-bottom:1.5rem">
-                    Dengan pengalaman lebih dari 9 tahun, kami memahami kebutuhan setiap pelanggan dan berkomitmen
-                    untuk memberikan produk berkualitas dengan harga yang terjangkau. Kepercayaan pelanggan adalah
+                    Dengan pengalaman lebih dari 11 tahun, kami memahami kebutuhan setiap pelanggan dan berkomitmen
+                    untuk memberikan produk terbaik dan berkualitas dengan harga yang terjangkau. Kepercayaan pelanggan adalah
                     modal utama kami untuk terus berkembang.
                 </p>
 
@@ -145,7 +145,7 @@ include 'config/header.php';
                     <div class="timeline-item">
                         <div class="timeline-year">2015</div>
                         <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">🏪 Pendirian Toko</div>
-                        <p class="timeline-text">Toko Randu Mekar resmi dibuka di Sukoharjo. Memulai dengan produk kasur dan bantal pilihan berkualitas.</p>
+                        <p class="timeline-text">Toko Randu Mekar resmi dibuka di Sukoharjo. Memulai dengan produk kasur, guling, bantal dan perabotan lain dengan pilihan berkualitas.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2017</div>
@@ -153,19 +153,19 @@ include 'config/header.php';
                         <p class="timeline-text">Menambah lini produk sofa, karpet, dan guling. Pelanggan mulai meluas ke area Solo Raya.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2019</div>
-                        <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">🌟 100+ Pelanggan Setia</div>
-                        <p class="timeline-text">Mencapai 100+ pelanggan tetap dan memulai layanan antar gratis untuk area Sukoharjo.</p>
+                        <div class="timeline-year">2018</div>
+                        <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">🌟 Menjadi Toko terpercaya di Kecamatan Weru</div>
+                        <p class="timeline-text">Menjadi toko terpercaya dikawasan kecamatan weru dan memiliki berbagai mitra dan memulai layanan antar gratis untuk area Sukoharjo.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year">2021</div>
                         <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">📱 Go Digital</div>
-                        <p class="timeline-text">Membuka layanan pemesanan via WhatsApp dan media sosial. Jangkauan pelanggan semakin luas.</p>
+                        <p class="timeline-text">Membuka layanan pemesanan via WhatsApp dan media sosial. Menjadikan Jangkauan toko semakin luas.</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2023</div>
+                        <div class="timeline-year">2025</div>
                         <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem">🚀 Website Resmi</div>
-                        <p class="timeline-text">Meluncurkan website resmi untuk memudahkan pelanggan melihat katalog produk secara online.</p>
+                        <p class="timeline-text">Meluncurkan website resmi untuk memudahkan pelanggan melihat produk secara online.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-year"><?= date('Y') ?></div>

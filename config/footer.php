@@ -13,7 +13,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
             <div class="col-lg-4 col-md-6">
                 <div class="footer-brand"><img src="<?= $base_url ?>assets/images/logo polosan.png" alt="Randu Mekar Logo" class="footer-logo"> Toko Randu Mekar</div>
                 <p class="footer-tagline">
-                    Menyediakan kasur, karpet, bantal, guling, sofa, dan berbagai produk meubel berkualitas sejak 2015. 
+                    Menyediakan kasur, karpet, bantal, guling, sofa, dan berbagai produk meubel berkualitas sejak 2015.
                     Harga langsung dari produsen, gratis ongkir area Sukoharjo.
                 </p>
                 <div class="social-links">
@@ -31,7 +31,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                     </a>
                 </div>
             </div>
-            
+
             <!-- Navigasi -->
             <div class="col-lg-2 col-md-6 col-6">
                 <div class="footer-title">Navigasi</div>
@@ -43,7 +43,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                     <li><a href="<?= $base_url ?>login.php"><i class="bi bi-chevron-right"></i> Admin</a></li>
                 </ul>
             </div>
-            
+
             <!-- Produk -->
             <div class="col-lg-2 col-md-6 col-6">
                 <div class="footer-title">Produk</div>
@@ -55,7 +55,7 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                     <li><a href="<?= $base_url ?>produk.php?kategori=sofa"><i class="bi bi-chevron-right"></i> Sofa</a></li>
                 </ul>
             </div>
-            
+
             <!-- Kontak -->
             <div class="col-lg-4 col-md-6">
                 <div class="footer-title">Hubungi Kami</div>
@@ -66,6 +66,10 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                             <?= WHATSAPP_DISPLAY ?>
                         </a>
                     </li>
+                    <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>?text=Halo%20Toko%20Randu%20Mekar"
+                        class="btn-wa mt-3 d-inline-flex" target="_blank" style="font-size:0.85rem;padding:10px 20px">
+                        <i class="bi bi-whatsapp"></i> Chat Sekarang
+                    </a>
                     <li>
                         <a href="#">
                             <i class="bi bi-geo-alt" style="color:var(--coklat-muda)"></i>
@@ -79,18 +83,14 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                         </a>
                     </li>
                 </ul>
-                <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>?text=Halo%20Toko%20Randu%20Mekar" 
-                   class="btn-wa mt-3 d-inline-flex" target="_blank" style="font-size:0.85rem;padding:10px 22px">
-                    <i class="bi bi-whatsapp"></i> Chat Sekarang
-                </a>
             </div>
         </div>
     </div>
-    
+
     <div class="footer-bottom mt-4">
         <div class="container">
-            <p>© <?= date('Y') ?> <strong>Toko Randu Mekar</strong>. Semua hak dilindungi. 
-               Dibuat dengan ❤️ untuk pelanggan setia kami.</p>
+            <p>© <?= date('Y') ?> <strong>Toko Randu Mekar</strong>. Semua hak dilindungi.
+                Semua layanan dan Website ini dibuat dengan ❤️❤️❤️❤️❤️ untuk pelanggan setia kami.</p>
         </div>
     </div>
 </footer>
@@ -102,4 +102,5 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

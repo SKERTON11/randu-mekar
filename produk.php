@@ -44,16 +44,16 @@ include 'config/header.php';
 <!-- Page Header -->
 <div class="page-header">
     <div class="container text-center">
-        <span class="section-badge"><i class="bi bi-bag-check me-1"></i> KOLEKSI KAMI</span>
+        <span class="section-badge"><i class="bi bi-bag-check me-1"></i> PRODUK KAMI</span>
         <h1 class="page-title mt-2">Semua <span>Produk</span> Kami</h1>
-        <p style="color:#7A6050;margin-top:0.5rem">Temukan kasur, karpet, bantal, guling, sofa dan meubel berkualitas</p>
-        
+        <p style="color:#7A6050;margin-top:0.5rem">Temukan kasur, karpet, bantal, guling, sofa dan semua yang anda butuhkan</p>
+
         <!-- Search Bar -->
         <form method="GET" class="mt-4">
             <div class="search-box">
                 <i class="bi bi-search" style="color:var(--coklat-muda);font-size:1.1rem;margin-right:8px"></i>
-                <input type="text" name="q" id="searchProduk" placeholder="Cari produk..." 
-                       value="<?= htmlspecialchars($search) ?>">
+                <input type="text" name="q" id="searchProduk" placeholder="Cari produk..."
+                    value="<?= htmlspecialchars($search) ?>">
                 <?php if ($kategori_filter !== 'all'): ?>
                     <input type="hidden" name="kategori" value="<?= $kategori_filter ?>">
                 <?php endif; ?>
@@ -68,20 +68,20 @@ include 'config/header.php';
 <!-- Produk Section -->
 <section class="section-padding" style="padding-top:50px">
     <div class="container">
-        
+
         <!-- Filter Kategori -->
         <div class="d-flex gap-2 flex-wrap justify-content-center mb-4">
             <?php foreach ($kategori_list as $key => $kat): ?>
-            <a href="produk.php?kategori=<?= $key ?><?= $search ? '&q='.$search : '' ?>" 
-                class="filter-btn <?= $kategori_filter === $key ? 'active' : '' ?>">
-                <span class="filter-thumb">
-                    <img src="assets/images/<?= htmlspecialchars($kat['thumb']) ?>" alt="">
-                </span>
-                <span><?= $kat['label'] ?></span>
-            </a>
+                <a href="produk.php?kategori=<?= $key ?><?= $search ? '&q=' . $search : '' ?>"
+                    class="filter-btn <?= $kategori_filter === $key ? 'active' : '' ?>">
+                    <span class="filter-thumb">
+                        <img src="assets/images/<?= htmlspecialchars($kat['thumb']) ?>" alt="">
+                    </span>
+                    <span><?= $kat['label'] ?></span>
+                </a>
             <?php endforeach; ?>
         </div>
-        
+
         <!-- Info hasil -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <p style="color:#7A6050;font-size:0.9rem;margin:0">
@@ -90,49 +90,49 @@ include 'config/header.php';
                 <?= $kategori_filter !== 'all' ? "kategori <strong>{$kategori_list[$kategori_filter]['label']}</strong>" : "" ?>
             </p>
             <?php if ($search || $kategori_filter !== 'all'): ?>
-            <a href="produk.php" style="font-size:0.85rem;color:var(--coklat-tua);text-decoration:none">
-                <i class="bi bi-x-circle"></i> Reset Filter
-            </a>
+                <a href="produk.php" style="font-size:0.85rem;color:var(--coklat-tua);text-decoration:none">
+                    <i class="bi bi-x-circle"></i> Reset Filter
+                </a>
             <?php endif; ?>
         </div>
-        
+
         <!-- Grid Produk -->
         <div class="row g-4">
             <?php if ($produk && $produk->num_rows > 0): ?>
                 <?php while ($p = $produk->fetch_assoc()): ?>
-                <div class="col-lg-4 col-md-6 product-item" data-kategori="<?= $p['kategori'] ?>">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <?php if ($p['gambar'] && file_exists("uploads/" . $p['gambar'])): ?>
-                                <img src="uploads/<?= htmlspecialchars($p['gambar']) ?>" 
-                                     alt="<?= htmlspecialchars($p['nama_produk']) ?>"
-                                     loading="lazy">
-                            <?php else: ?>
-                                <div class="product-placeholder">
-                                    <?php
-                                    $placeholder = $kategori_list[$p['kategori']]['image'] ?? $kategori_list['all']['image'];
-                                    ?>
-                                    <img src="assets/images/<?= rawurlencode($placeholder) ?>" alt="">
-                                    <span><?= ucwords(str_replace('_', ' ', $p['kategori'])) ?></span>
-                                </div>
-                            <?php endif; ?>
-                            <?php if ($p['unggulan']): ?>
-                                <span class="badge-unggulan"><i class="bi bi-star-fill me-1"></i>Unggulan</span>
-                            <?php endif; ?>
-                        </div>
-                        <div class="product-body">
-                            <div class="product-kategori"><?= strtoupper(str_replace('_', ' ', $p['kategori'])) ?></div>
-                            <div class="product-name"><?= htmlspecialchars($p['nama_produk']) ?></div>
-                            <div class="product-desc">
-                                <?= htmlspecialchars(mb_substr($p['deskripsi'], 0, 100)) ?>...
+                    <div class="col-lg-4 col-md-6 product-item" data-kategori="<?= $p['kategori'] ?>">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <?php if ($p['gambar'] && file_exists("uploads/" . $p['gambar'])): ?>
+                                    <img src="uploads/<?= htmlspecialchars($p['gambar']) ?>"
+                                        alt="<?= htmlspecialchars($p['nama_produk']) ?>"
+                                        loading="lazy">
+                                <?php else: ?>
+                                    <div class="product-placeholder">
+                                        <?php
+                                        $placeholder = $kategori_list[$p['kategori']]['image'] ?? $kategori_list['all']['image'];
+                                        ?>
+                                        <img src="assets/images/<?= rawurlencode($placeholder) ?>" alt="">
+                                        <span><?= ucwords(str_replace('_', ' ', $p['kategori'])) ?></span>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($p['unggulan']): ?>
+                                    <span class="badge-unggulan"><i class="bi bi-star-fill me-1"></i>Unggulan</span>
+                                <?php endif; ?>
                             </div>
-                            <div class="product-price"><?= formatRupiah($p['harga']) ?></div>
-                            <a href="detail_produk.php?id=<?= $p['id_produk'] ?>" class="btn-detail">
-                                <i class="bi bi-eye me-1"></i>Lihat Detail
-                            </a>
+                            <div class="product-body">
+                                <div class="product-kategori"><?= strtoupper(str_replace('_', ' ', $p['kategori'])) ?></div>
+                                <div class="product-name"><?= htmlspecialchars($p['nama_produk']) ?></div>
+                                <div class="product-desc">
+                                    <?= htmlspecialchars(mb_substr($p['deskripsi'], 0, 100)) ?>...
+                                </div>
+                                <div class="product-price"><?= formatRupiah($p['harga']) ?></div>
+                                <a href="detail_produk.php?id=<?= $p['id_produk'] ?>" class="btn-detail">
+                                    <i class="bi bi-eye me-1"></i>Lihat Detail
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php endwhile; ?>
             <?php else: ?>
                 <div class="col-12 text-center py-5">
@@ -145,36 +145,36 @@ include 'config/header.php';
                 </div>
             <?php endif; ?>
         </div>
-        
+
         <!-- Pagination -->
         <?php if ($total_pages > 1): ?>
-        <nav class="mt-5 d-flex justify-content-center">
-            <ul class="pagination">
-                <?php if ($page > 1): ?>
-                <li class="page-item">
-                    <a class="page-link" href="?hal=<?= $page-1 ?>&kategori=<?= $kategori_filter ?>&q=<?= urlencode($search) ?>">
-                        <i class="bi bi-chevron-left"></i>
-                    </a>
-                </li>
-                <?php endif; ?>
-                
-                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                <li class="page-item <?= $i === $page ? 'active' : '' ?>">
-                    <a class="page-link" href="?hal=<?= $i ?>&kategori=<?= $kategori_filter ?>&q=<?= urlencode($search) ?>">
-                        <?= $i ?>
-                    </a>
-                </li>
-                <?php endfor; ?>
-                
-                <?php if ($page < $total_pages): ?>
-                <li class="page-item">
-                    <a class="page-link" href="?hal=<?= $page+1 ?>&kategori=<?= $kategori_filter ?>&q=<?= urlencode($search) ?>">
-                        <i class="bi bi-chevron-right"></i>
-                    </a>
-                </li>
-                <?php endif; ?>
-            </ul>
-        </nav>
+            <nav class="mt-5 d-flex justify-content-center">
+                <ul class="pagination">
+                    <?php if ($page > 1): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?hal=<?= $page - 1 ?>&kategori=<?= $kategori_filter ?>&q=<?= urlencode($search) ?>">
+                                <i class="bi bi-chevron-left"></i>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <li class="page-item <?= $i === $page ? 'active' : '' ?>">
+                            <a class="page-link" href="?hal=<?= $i ?>&kategori=<?= $kategori_filter ?>&q=<?= urlencode($search) ?>">
+                                <?= $i ?>
+                            </a>
+                        </li>
+                    <?php endfor; ?>
+
+                    <?php if ($page < $total_pages): ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?hal=<?= $page + 1 ?>&kategori=<?= $kategori_filter ?>&q=<?= urlencode($search) ?>">
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
         <?php endif; ?>
     </div>
 </section>
