@@ -72,13 +72,15 @@ $current_admin = basename($_SERVER['PHP_SELF'], '.php');
     <!-- Sidebar -->
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="admin-sidebar-logo">
-            <div style="display:flex;align-items:center;gap:10px">
-                <div style="width:40px;height:40px;background:var(--coklat-tua);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">🏠</div>
+            <a href="dashboard.php" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit">
+                <div style="width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center">
+                    <img src="../assets/images/logo polosan.png" alt="Randu Mekar Logo" style="width:40px;height:40px;object-fit:contain">
+                </div>
                 <div>
                     <div class="admin-logo-text">Randu Mekar</div>
                     <div class="admin-logo-sub">Panel Admin</div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <nav class="admin-nav">

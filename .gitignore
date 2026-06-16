@@ -1,3 +1,42 @@
+# Composer
+/vendor/
+composer.phar
+composer.lock
+composer.json
+
+# Environment files
+.env
+.env.local
+.env.*.php
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Uploads and runtime
+/uploads/
+/storage/
+/cache/
+
+# Logs
+*.log
+
+# PHPUnit
+.phpunit.result.cache
+
+# Misc
+/*.zip
 # PHP / general
 /vendor/
 /node_modules/

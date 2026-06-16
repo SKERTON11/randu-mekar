@@ -55,11 +55,13 @@ CREATE TABLE IF NOT EXISTS kontak (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
+    whatsapp VARCHAR(30) NOT NULL,
     pesan TEXT NOT NULL,
     status ENUM('baru','dibaca') DEFAULT 'baru',
+    favorit TINYINT(1) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
-INSERT INTO kontak (nama, email, pesan) VALUES
-('Budi Santoso', 'budi@email.com', 'Halo, apakah kasur springbed tersedia dalam ukuran 160x200?'),
-('Siti Rahayu', 'siti@email.com', 'Saya tertarik dengan sofa sectional, apakah bisa diantar ke area Solo?');
+INSERT INTO kontak (nama, email, whatsapp, pesan) VALUES
+('Budi Santoso', 'budi@email.com', '6281234567890', 'Halo, apakah kasur springbed tersedia dalam ukuran 160x200?'),
+('Siti Rahayu', 'siti@email.com', '6281987654321', 'Saya tertarik dengan sofa sectional, apakah bisa diantar ke area Solo?');

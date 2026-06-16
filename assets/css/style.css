@@ -1598,6 +1598,220 @@ footer {
     .hero-buttons { justify-content: center; }
     .hero-section { text-align: center; }
     .hero-desc { margin: 0 auto 2rem; }
+
+    .message-card {
+        width: 100%;
+    }
+
+    .message-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .message-summary > div:first-child {
+        width: 100%;
+    }
+
+    .message-summary > div:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .message-summary span,
+    .message-summary i {
+        font-size: 0.92rem;
+    }
+
+    .message-details {
+        padding: 0 1rem 1rem;
+    }
+
+    .message-details .btn-primary-custom,
+    .message-details .btn-icon,
+    .message-details a.btn-icon {
+        width: 100%;
+        min-width: auto;
+        margin: 0 0 8px 0;
+    }
+
+    .message-details .btn-primary-custom {
+        text-align: center;
+    }
+
+    .message-details .btn-primary-custom + .btn-primary-custom,
+    .message-details .btn-primary-custom + .btn-icon,
+    .message-details .btn-icon + .btn-primary-custom,
+    .message-details .btn-icon + .btn-icon {
+        margin-left: 0;
+    }
+
+    .message-details div[style*="display:flex"] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .message-card {
+        padding: 0;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .btn-primary-custom,
+    .btn-outline-custom,
+    .btn-wa,
+    .btn-detail {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .product-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-card,
+    .product-card,
+    .stat-item,
+    .contact-card,
+    .footer-links li,
+    .cta-section {
+        width: 100%;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-links li {
+        width: 50%;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .wa-float {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    /* Halaman Produk */
+    .page-header {
+        padding: 80px 0 40px;
+    }
+
+    .page-header .container {
+        text-align: center;
+    }
+
+    .search-box {
+        max-width: 100%;
+        width: 100%;
+        padding: 12px 14px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .search-box input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .filter-btn {
+        flex: 1 1 calc(50% - 10px);
+        min-width: 0;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .filter-btn span {
+        display: block;
+    }
+
+    .filter-thumb {
+        margin: 0 auto;
+    }
+
+    .filter-btn .filter-thumb img {
+        transform: scale(1.18);
+    }
+
+    .page-title {
+        font-size: clamp(1.8rem, 8vw, 2.6rem);
+    }
+
+    .page-header p {
+        margin: 0 auto;
+        max-width: 480px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .contact-card .contact-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
+    }
+
+    .form-control-custom {
+        width: 100%;
+    }
+
+    .admin-topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 16px;
+    }
+
+    .admin-main {
+        padding: 20px 16px 30px;
+    }
+
+    .admin-card {
+        padding: 1.25rem;
+    }
+
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .pagination .page-item {
+        flex: 1 1 auto;
+        min-width: 56px;
+    }
+
+    .pagination .page-link {
+        width: 100%;
+    }
 }
 
 /* Scrollbar Custom */

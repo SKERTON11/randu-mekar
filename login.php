@@ -51,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-card">
         <!-- Logo -->
         <div class="text-center mb-4">
-            <div style="width:64px;height:64px;background:var(--coklat-tua);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1rem;box-shadow:0 8px 20px rgba(139,107,67,0.3)">
-                🏠
+            <div style="width:64px;height:64px;margin:0 auto 1rem;">
+                <img src="assets/images/logo toko.png" alt="Toko Randu Mekar" style="width:64px;height:64px;border-radius:12px;object-fit:cover;box-shadow:0 8px 20px rgba(139,107,67,0.3);display:block;margin:0 auto">
             </div>
             <h2 style="font-weight:800;color:var(--teks-gelap);font-size:1.4rem">Toko Randu Mekar</h2>
             <p style="color:#7A6050;font-size:0.85rem">Panel Admin — Masuk untuk mengelola toko</p>
@@ -103,13 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </a>
         </div>
         
-        <!-- Info default login -->
-        <div style="background:rgba(139,107,67,0.06);border-radius:10px;padding:12px;margin-top:1rem;text-align:center">
-            <p style="font-size:0.75rem;color:#7A6050;margin:0">
-                🔑 Default: <strong>admin</strong> / <strong>password</strong><br>
-                <em style="font-size:0.7rem">Ganti password setelah login pertama!</em>
-            </p>
-        </div>
+        <!-- Default login info removed -->
     </div>
 </div>
 

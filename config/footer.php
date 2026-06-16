@@ -20,13 +20,13 @@ $base_url = (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) ? '../' : '';
                     <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>" class="social-link" target="_blank" title="WhatsApp">
                         <i class="bi bi-whatsapp"></i>
                     </a>
-                    <a href="#" class="social-link" target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/muhammaddp_11?igsh=OXAyano1NHJnaWt3" class="social-link" target="_blank" title="<?= INSTAGRAM_HANDLE ?>">
                         <i class="bi bi-instagram"></i>
                     </a>
-                    <a href="#" class="social-link" target="_blank" title="Facebook">
+                    <a href="https://www.facebook.com/share/1M3wfjiN9G/" class="social-link" target="_blank" title="<?= FACEBOOK_HANDLE ?>">
                         <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="#" class="social-link" target="_blank" title="TikTok">
+                    <a href="https://tiktok.com/@opetalamak" class="social-link" target="_blank" title="<?= TIKTOK_HANDLE ?>">
                         <i class="bi bi-tiktok"></i>
                     </a>
                 </div>

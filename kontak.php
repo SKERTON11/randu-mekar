@@ -9,15 +9,16 @@ $pesan_error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = sanitize($_POST['nama'] ?? '');
-    $email = sanitize($_POST['email'] ?? '');
+    $whatsapp = sanitize($_POST['whatsapp'] ?? '');
+    $whatsapp = preg_replace('/[^0-9+]/', '', $whatsapp);
     $pesan = sanitize($_POST['pesan'] ?? '');
-
-    if (!$nama || !$email || !$pesan) {
+    if (!$nama || !$whatsapp || !$pesan) {
         $pesan_error = 'Semua field harus diisi!';
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $pesan_error = 'Format email tidak valid!';
+    } elseif (!preg_match('/^\+?[0-9]{7,20}$/', $whatsapp)) {
+        $pesan_error = 'Nomor WhatsApp tidak valid. Masukkan angka lengkap dengan kode negara.';
     } else {
-        $sql = "INSERT INTO kontak (nama, email, pesan) VALUES ('$nama', '$email', '$pesan')";
+        // Email field removed; store empty string for compatibility
+        $sql = "INSERT INTO kontak (nama, email, whatsapp, pesan) VALUES ('$nama', '', '$whatsapp', '$pesan')";
         if ($conn->query($sql)) {
             $pesan_sukses = 'Pesan Anda telah terkirim! Kami akan menghubungi Anda segera.';
         } else {
@@ -54,32 +55,32 @@ include 'config/header.php';
                 </a>
             </div>
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <a href="#" class="contact-card d-block text-decoration-none" target="_blank">
+                <a href="https://www.instagram.com/muhammaddp_11?igsh=OXAyano1NHJnaWt3" class="contact-card d-block text-decoration-none" target="_blank">
                     <div class="contact-icon" style="background:linear-gradient(135deg,rgba(225,48,108,0.1),rgba(225,48,108,0.2))">
                         <i class="bi bi-instagram" style="color:#E1306C;font-size:1.5rem"></i>
                     </div>
                     <div style="font-weight:700;color:var(--teks-gelap);margin-bottom:4px">Instagram</div>
-                    <div style="font-size:0.85rem;color:#7A6050">@randumekars</div>
+                    <div style="font-size:0.85rem;color:#7A6050"><?= INSTAGRAM_HANDLE ?></div>
                     <div style="font-size:0.78rem;color:var(--coklat-muda);margin-top:6px">Follow kami →</div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <a href="#" class="contact-card d-block text-decoration-none" target="_blank">
+                <a href="https://www.facebook.com/share/1M3wfjiN9G/" class="contact-card d-block text-decoration-none" target="_blank">
                     <div class="contact-icon" style="background:linear-gradient(135deg,rgba(24,119,242,0.1),rgba(24,119,242,0.2))">
                         <i class="bi bi-facebook" style="color:#1877F2;font-size:1.5rem"></i>
                     </div>
                     <div style="font-weight:700;color:var(--teks-gelap);margin-bottom:4px">Facebook</div>
-                    <div style="font-size:0.85rem;color:#7A6050">Toko Randu Mekar</div>
+                    <div style="font-size:0.85rem;color:#7A6050"><?= FACEBOOK_HANDLE ?></div>
                     <div style="font-size:0.78rem;color:var(--coklat-muda);margin-top:6px">Like halaman kami →</div>
                 </a>
             </div>
             <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <a href="#" class="contact-card d-block text-decoration-none" target="_blank">
+                <a href="https://tiktok.com/@opetalamak" class="contact-card d-block text-decoration-none" target="_blank">
                     <div class="contact-icon" style="background:linear-gradient(135deg,rgba(0,0,0,0.08),rgba(0,0,0,0.12))">
                         <i class="bi bi-tiktok" style="color:#000;font-size:1.5rem"></i>
                     </div>
                     <div style="font-weight:700;color:var(--teks-gelap);margin-bottom:4px">TikTok</div>
-                    <div style="font-size:0.85rem;color:#7A6050">@randumekars</div>
+                    <div style="font-size:0.85rem;color:#7A6050"><?= TIKTOK_HANDLE ?></div>
                     <div style="font-size:0.78rem;color:var(--coklat-muda);margin-top:6px">Ikuti kami →</div>
                 </a>
             </div>
@@ -112,11 +113,13 @@ include 'config/header.php';
                                 placeholder="Masukkan nama Anda" required
                                 value="<?= htmlspecialchars($_POST['nama'] ?? '') ?>">
                         </div>
+                        <!-- Email removed: contact via WhatsApp only -->
                         <div class="mb-3">
-                            <label class="form-label-custom">Email *</label>
-                            <input type="email" name="email" class="form-control-custom"
-                                placeholder="email@anda.com" required
-                                value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                            <label class="form-label-custom">WhatsApp *</label>
+                            <input type="text" name="whatsapp" class="form-control-custom"
+                                placeholder="6281234567890" required
+                                value="<?= htmlspecialchars($_POST['whatsapp'] ?? '') ?>">
+                            <div style="font-size:0.78rem;color:#7A6050;margin-top:6px">Tuliskan nomor WhatsApp lengkap menggunakan awalan 62. CNTH:6287752287105.</div>
                         </div>
                         <div class="mb-4">
                             <label class="form-label-custom">Pesan *</label>

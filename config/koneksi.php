@@ -12,7 +12,11 @@ define('SITE_URL', 'http://localhost/randu-mekar');
 define('WHATSAPP_NUMBER', '6287752287106'); // Ganti dengan nomor WA toko
 define('WHATSAPP_DISPLAY', '+62 877-5228-7106');
 define('TOKO_NAMA', 'Toko Randu Mekar');
-define('TOKO_ALAMAT', 'Jl. Randu Mekar No. 15, Sukoharjo, Jawa Tengah');
+define('TOKO_ALAMAT', 'Dusun I, Tawang, Kec. Weru, Kabupaten Sukoharjo, Jawa Tengah');
+// Social handles (used for display labels)
+define('INSTAGRAM_HANDLE', 'muhammaddp_11');
+define('FACEBOOK_HANDLE', '1M3wfjiN9G');
+define('TIKTOK_HANDLE', '@opetalamak');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 

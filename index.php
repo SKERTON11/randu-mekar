@@ -57,7 +57,7 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
             <div class="col-6 col-md-3">
                 <div class="stat-item">
                     <div class="stat-icon">🕰️</div>
-                    <span class="stat-number" data-counter="9"><?= date('Y') - 2015 ?></span>
+                    <span class="stat-number" data-counter="11"><?= date('Y') - 2015 ?></span>
                     <div class="stat-label">Tahun Berpengalaman</div>
                 </div>
             </div>
@@ -72,14 +72,14 @@ $total_produk = $conn->query("SELECT COUNT(*) as total FROM produk")->fetch_asso
                 <div class="stat-item pelanggan">
                     <div class="stat-icon">😊</div>
                     <span class="stat-number" data-counter="500">500+</span>
-                    <div class="stat-label">Pelanggan Puas</div>
+                    <div class="stat-label">Pelanggan Google Maps</div>
                 </div>
             </div>
             <div class="col-6 col-md-3">
                 <div class="stat-item rating">
                     <div class="stat-icon">⭐</div>
                     <span class="stat-number">4.9</span>
-                    <div class="stat-label">Rating Toko</div>
+                    <div class="stat-label">Rating Google Maps</div>
                 </div>
             </div>
         </div>
