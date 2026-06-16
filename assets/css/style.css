@@ -1713,6 +1713,113 @@ footer {
         bottom: 16px;
     }
 
+    /* ===== ADMIN MOBILE ===== */
+    .admin-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        max-width: 320px;
+        transform: translateX(-100%);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        background: var(--teks-gelap);
+        z-index: 200;
+    }
+
+    .admin-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 199;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    #sidebarToggle {
+        display: flex !important;
+    }
+
+    .admin-topbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .admin-content {
+        margin-left: 0;
+    }
+
+    .admin-main {
+        padding: 20px 16px 24px;
+    }
+
+    .admin-nav-item {
+        margin: 4px 10px;
+    }
+
+    .admin-nav-link {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    /* Extra small screens: use card list for products in admin */
+    @media (max-width: 480px) {
+        .table-custom { display: none; }
+        .product-list-mobile { display: block !important; }
+        .product-list-mobile .admin-card { padding: 12px; }
+        .product-list-mobile .btn-icon { width: 40px; height: 40px; }
+        .admin-nav-link { font-size: 0.95rem; }
+    }
+
+    .admin-sidebar-logo {
+        padding: 18px 16px;
+    }
+
+    .table-custom {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .table-custom thead,
+    .table-custom tbody,
+    .table-custom tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .table-custom th,
+    .table-custom td {
+        padding: 12px 10px;
+        white-space: normal;
+    }
+
+    .btn-icon,
+    .btn-primary-custom,
+    .btn-outline-custom {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .admin-card,
+    .stat-card {
+        padding: 1.2rem;
+    }
+
+    .admin-sidebar-logo {
+        padding: 18px 16px;
+    }
+
     /* Halaman Produk */
     .page-header {
         padding: 80px 0 40px;

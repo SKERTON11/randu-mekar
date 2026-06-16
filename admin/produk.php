@@ -20,7 +20,12 @@ if ($kategori_filter !== 'all') $where .= " AND kategori = '$kategori_filter'";
 
 $total = $conn->query("SELECT COUNT(*) as t FROM produk $where")->fetch_assoc()['t'];
 $total_pages = ceil($total / $per_page);
-$produk = $conn->query("SELECT * FROM produk $where ORDER BY created_at DESC LIMIT $per_page OFFSET $offset");
+$res = $conn->query("SELECT * FROM produk $where ORDER BY created_at DESC LIMIT $per_page OFFSET $offset");
+// fetch rows into array so we can render both table (desktop) and cards (mobile)
+$produk_rows = [];
+if ($res && $res->num_rows > 0) {
+    while ($r = $res->fetch_assoc()) $produk_rows[] = $r;
+}
 ?>
 
 <?php if ($sukses): ?>
@@ -77,9 +82,9 @@ $produk = $conn->query("SELECT * FROM produk $where ORDER BY created_at DESC LIM
                 </tr>
             </thead>
             <tbody>
-                <?php if ($produk && $produk->num_rows > 0):
+                <?php if (!empty($produk_rows)):
                     $no = $offset + 1;
-                    while ($p = $produk->fetch_assoc()): ?>
+                    foreach ($produk_rows as $p): ?>
                 <tr>
                     <td style="color:#9CA3AF;font-size:0.82rem"><?= $no++ ?></td>
                     <td>
@@ -116,7 +121,7 @@ $produk = $conn->query("SELECT * FROM produk $where ORDER BY created_at DESC LIM
                         </div>
                     </td>
                 </tr>
-                <?php endwhile; else: ?>
+                <?php endforeach; else: ?>
                 <tr>
                     <td colspan="8" style="text-align:center;padding:3rem;color:#9CA3AF">
                         <div style="font-size:3rem">📦</div>
@@ -129,6 +134,44 @@ $produk = $conn->query("SELECT * FROM produk $where ORDER BY created_at DESC LIM
                 <?php endif; ?>
             </tbody>
         </table>
+    </div>
+
+    <!-- Mobile card view -->
+    <div class="product-list-mobile" style="display:none;margin-top:16px">
+        <?php if (!empty($produk_rows)):
+            foreach ($produk_rows as $p): ?>
+                <div class="admin-card" style="margin-bottom:12px;display:flex;gap:12px;align-items:flex-start">
+                    <div style="width:64px;flex-shrink:0">
+                        <?php if ($p['gambar'] && file_exists("../uploads/" . $p['gambar'])): ?>
+                            <img src="../uploads/<?= htmlspecialchars($p['gambar']) ?>" style="width:64px;height:64px;object-fit:cover;border-radius:8px;border:2px solid rgba(214,185,140,0.3)">
+                        <?php else: ?>
+                            <div style="width:64px;height:64px;background:var(--cream);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.6rem">
+                                <?php $icons=['kasur'=>'🛏️','karpet'=>'🟫','bantal'=>'🟤','guling'=>'🟡','sofa'=>'🛋️','rak_piring'=>'🍽️','kasur_lantai'=>'🛌','lainnya'=>'📦']; echo $icons[$p['kategori']] ?? '📦'; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div style="flex:1;min-width:0">
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                            <div style="font-weight:700;color:var(--teks-gelap);font-size:0.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><?= htmlspecialchars($p['nama_produk']) ?></div>
+                            <div style="display:flex;gap:6px">
+                                <a href="edit_produk.php?id=<?= $p['id_produk'] ?>" class="btn-icon edit" title="Edit Produk">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="hapus_produk.php?id=<?= $p['id_produk'] ?>" class="btn-icon delete" title="Hapus Produk" data-delete="<?= htmlspecialchars($p['nama_produk']) ?>">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                            <div style="font-size:0.85rem;color:#9CA3AF"><?= ucwords(str_replace('_',' ',$p['kategori'])) ?></div>
+                            <div style="font-weight:700;color:var(--coklat-tua)"><?= formatRupiah($p['harga']) ?></div>
+                        </div>
+                        <div style="margin-top:8px;font-size:0.82rem;color:#9CA3AF"><?= date('d M Y', strtotime($p['created_at'])) ?></div>
+                    </div>
+                </div>
+        <?php endforeach; else: ?>
+            <div class="admin-card" style="text-align:center;color:#9CA3AF">Belum ada produk</div>
+        <?php endif; ?>
     </div>
 
     <!-- Pagination -->
